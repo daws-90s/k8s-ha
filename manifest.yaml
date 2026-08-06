@@ -46,7 +46,7 @@ kind: PodDisruptionBudget
 metadata:
   name: nginx
 spec:
-  minAvailable: "50%"
+  minAvailable: "70%"
   selector:
     matchLabels:
       project: roboshop
