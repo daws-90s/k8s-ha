@@ -31,7 +31,7 @@ spec:
             project: roboshop
       - maxSkew: 1
         topologyKey: topology.kubernetes.io/node
-        whenUnsatisfiable: DoNotSchedule
+        whenUnsatisfiable: ScheduleAnyway
         labelSelector:
           matchLabels:
             project: roboshop
