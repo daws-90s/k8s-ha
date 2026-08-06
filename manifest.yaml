@@ -8,7 +8,7 @@ metadata:
     tier: frontend
     component: frontend
 spec:
-  replicas: 10
+  replicas: 1
   selector:
     matchLabels:
       project: roboshop
@@ -29,8 +29,12 @@ spec:
         labelSelector:
           matchLabels:
             project: roboshop
-            # tier: frontend
-            # component: frontend
+      - maxSkew: 1
+        topologyKey: topology.kubernetes.io/node
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            project: roboshop
       containers:
       - name: nginx
         image: nginx:latest
